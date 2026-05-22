@@ -105,6 +105,14 @@ The new local repository is `ccrm-streamlit-pro`. Source code can be read from t
 - WHEN dependencies are available, THE system SHALL run Streamlit locally and verify the main pages render.
 - WHEN Docker support is included, THE system SHALL verify or document the `docker compose` command needed to run the enhanced app.
 
+### R11. Task Execution Discipline
+
+- WHEN implementation begins, THE system SHALL execute exactly one task ID at a time.
+- WHEN a task starts, THE system SHALL mark only that task as `in_progress` before editing files for that task.
+- WHEN a task implementation is done, THE system SHALL run or report the task's verification before marking it `completed`.
+- WHEN a task is completed, THE system SHALL summarize the completed task and next task before starting another task.
+- IF a task cannot be completed as written, THE system SHALL mark it `blocked` or update the spec before continuing.
+
 ## Constraints
 
 - Primary implementation language is Python with Streamlit.
@@ -112,6 +120,7 @@ The new local repository is `ccrm-streamlit-pro`. Source code can be read from t
 - The new app may use Plotly for charts, matching the source app.
 - The new app should keep Korean UI copy where helpful, but source mojibake text must be replaced with readable Korean or concise English.
 - Secrets and environment-specific values must remain outside committed source.
+- Implementation must follow one-task-at-a-time execution: no batching multiple task IDs into a single implementation step unless the user explicitly changes this rule.
 
 ## Edge Cases
 

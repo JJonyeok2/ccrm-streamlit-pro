@@ -7,6 +7,10 @@
 - `completed`: Done and verified.
 - `blocked`: Needs user input or external dependency.
 
+## Execution Rule
+
+Implementation must proceed one task ID at a time. Before editing files for a task, mark only that task as `in_progress`. After the task's implementation is done, run or explicitly report its verification, then mark that task `completed` before starting the next task. Do not batch multiple task IDs into one implementation step unless the user explicitly approves a different workflow.
+
 ## Wave 0: Spec and Repository Setup
 
 ### T0.1 Create local repository shell
